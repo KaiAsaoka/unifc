@@ -59,4 +59,4 @@ Early development. ACPI EC (ThinkPad) is the first protocol, verified on a T480.
 
 ## License
 
-TBD
+[GPL v3](LICENSE)
