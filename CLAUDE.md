@@ -419,6 +419,9 @@ Level=-1 0            # Terminator (required)
 - All public functions, structs, enums, and struct members must have Doxygen docstrings
   using `@`-style tags (`@brief`, `@param`, `@return`). Static helper functions in `.cpp`
   files should also be documented.
+- Branch names follow the [Conventional Branch](https://conventional-branch.github.io/)
+  specification: `<type>/<description>` using lowercase letters, numbers, and hyphens.
+  Types: `feature/`, `bugfix/`, `hotfix/`, `release/`, `chore/`.
 
 ## Dependencies
 
