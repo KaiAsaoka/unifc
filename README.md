@@ -47,15 +47,57 @@ cmake -B build -G "MinGW Makefiles" -DUNIFC_MOCK=ON
 cmake --build build
 ```
 
-## Requirements
+## Installation
+
+### 1. Install PawnIO driver (ACPI EC protocol only)
+
+```
+winget install namazso.PawnIO
+```
+
+Or download from [pawnio.eu](https://pawnio.eu). Verify the service is running:
+
+```powershell
+Get-Service PawnIO  # Status should be "Running"
+```
+
+### 2. Download LpcACPIEC.bin
+
+Download the latest release from [PawnIO.Modules](https://github.com/namazso/PawnIO.Modules/releases). Extract and place `LpcACPIEC.bin` in the same directory as `unifc.exe`.
+
+### 3. Build
+
+```bash
+git submodule update --init --recursive
+cmake -B build -G "MinGW Makefiles"
+cmake --build build
+```
+
+### 4. Run
+
+Copy a config file and run as administrator:
+
+```
+copy configs\thinkpad_t14s_gen3.ini build\unifc.ini
+cd build
+unifc.exe
+```
+
+Or specify a config path directly:
+
+```
+unifc.exe configs\thinkpad_t14s_gen3.ini
+```
+
+### Requirements
 
 - Windows x86/x64
-- Admin privileges
-- ACPI EC protocol requires [PawnIO](https://pawnio.eu) (`winget install namazso.PawnIO`)
+- Administrator privileges
+- ACPI EC protocol: PawnIO driver + `LpcACPIEC.bin`
 
 ## Status
 
-Early development. ACPI EC (ThinkPad) is the first protocol, verified on a T480.
+Early development. ACPI EC (ThinkPad) is the first protocol, verified on T480 and T14s Gen 3.
 
 ## License
 
