@@ -268,10 +268,15 @@ HRESULT hr = pawnio_execute(handle, "ioctl_pio_write",
 - Link against `ntdll.lib` (PawnIOLib uses NT native APIs)
 - `LpcACPIEC.bin` must be in working directory alongside executable
 
-### User Requirements for PawnIO
+### User Installation Steps
 
-- PawnIO driver installed: `winget install namazso.PawnIO` or https://pawnio.eu
-- Administrator privileges
+1. **Install PawnIO driver**: `winget install namazso.PawnIO` or https://pawnio.eu
+2. **Download LpcACPIEC.bin**: From [PawnIO.Modules releases](https://github.com/namazso/PawnIO.Modules/releases).
+   This is a signed Pawn bytecode module that restricts I/O access to ACPI EC ports
+   0x62/0x66. It is not bundled in this repo — it is a third-party signed binary.
+3. **Place LpcACPIEC.bin** in the same directory as `unifc.exe` (or set `ModulePath` in
+   the config file to point to its location).
+4. **Run as administrator**: EC port access requires elevated privileges.
 
 ## ThinkPad EC Register Map (Reference Model)
 
@@ -427,7 +432,9 @@ Level=-1 0            # Terminator (required)
 
 - **PawnIO driver** (for ACPI EC protocol): `winget install namazso.PawnIO` or https://pawnio.eu
 - **PawnIOLib**: Git submodule at `thirdparty/PawnIOLib/`
-- **LpcACPIEC.bin**: Signed PawnIO module for ACPI EC port access
+- **LpcACPIEC.bin**: Signed PawnIO module for ACPI EC port access. Download from
+  [PawnIO.Modules releases](https://github.com/namazso/PawnIO.Modules/releases).
+  Place in the same directory as `unifc.exe`.
 
 ## References
 
