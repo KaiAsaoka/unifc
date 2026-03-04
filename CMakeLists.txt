@@ -30,7 +30,8 @@ else()
     target_compile_definitions(unifc PRIVATE PawnIOLib_EXPORTS)
     target_include_directories(unifc PRIVATE
         thirdparty/PawnIOLib/PawnIOLib
-        thirdparty/PawnIOLib/PawnIOLib/public
+        thirdparty/PawnIOLib/PawnIOLib/include
+        thirdparty/PawnIOLib/PawnIO/include
     )
     target_link_libraries(unifc PRIVATE ntdll.lib)
     message(STATUS "Building with PawnIO EC access")
